@@ -12,9 +12,8 @@ class BaseRequest extends FormRequest
     protected array $errors = [];
 
     /**
-     * @return void 
-     * @throws AuthorizationException 
-     * @throws BindingResolutionException 
+     * @return void
+     * @throws AuthorizationException
      */
     public function validateResolved()
     {
@@ -38,7 +37,7 @@ class BaseRequest extends FormRequest
         $this->passedValidation();
     }
 
-    public function getErrors()
+    public function getErrors(): array
     {
         return $this->errors;
     }

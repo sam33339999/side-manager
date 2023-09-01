@@ -21,4 +21,6 @@ Route::group([
     'prefix' => 'v1',
 ], static function () {
     Route::post('login', [App\Http\Controllers\V1\AuthController::class, 'login']);
+    Route::post('register', [App\Http\Controllers\V1\AuthController::class, 'register']);
+    Route::get('me', [App\Http\Controllers\V1\AuthController::class, 'me']);
 });

@@ -27,3 +27,13 @@ parameters:
 ```shell
 ./vendor/bin/phpstan analyse -c phpstan.neon --memory-limit=1G
 ```
+
+## JWT Token
+- vendor publish
+```shell
+php artisan vendor:publish # 選擇 JWT
+php artisan jwt:secret
+```
+- 設定 config/auth.php
+- 設定 app/Http/Kernel.php 增加 jwt 中間件
+
