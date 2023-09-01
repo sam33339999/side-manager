@@ -12,6 +12,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+
+    # DEPLOY
     - uses: shivammathur/setup-php@v2
       with:
           php-version: "8.2"
@@ -29,8 +31,16 @@ jobs:
       run: |
         mkdir -p database
         touch database/database.sqlite
+
+    # TEST
     - name: Execute tests (Unit and Feature tests) via PHPUnit
       env:
         DB_CONNECTION: sqlite
         DB_DATABASE: database/database.sqlite
-      run: vendor/bin/phpunit
+      run: php artisan test
+
+    # COVERAGE
+    - name: Run tests and collect coverage"
+      run: vendor/bin/phpunit --coverage-clover phpunit.xml .
+    - name: Upload coverage to Codecov
+      uses: codecov/codecov-action@v3
