@@ -4,8 +4,8 @@ namespace App\Services;
 
 use App\Repositories\UserRepository;
 
-class AuthService {
-
+class AuthService
+{
     public function __construct(
         protected UserRepository $userRepository
     ) {
@@ -29,5 +29,4 @@ class AuthService {
             name: $registerData['name'],
         );
     }
-
 }

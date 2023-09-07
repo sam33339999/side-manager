@@ -40,5 +40,4 @@ class AuthController extends Controller
     {
         return $this->successResponse(data: auth()->user());
     }
-
 }
